@@ -1,81 +1,224 @@
-# Full-Stack-Online-Code-IDE
-Project Scope
-CodeGem-AI-Powered-Full-Stack-Online-IDE is a full-stack online IDE that allows users to write, compile, and execute code in various programming languages directly in their browser. It provides features like real-time code editing, a responsive UI, and potentially AI-powered functionalities (though the specific AI features are not immediately clear from the provided files). The project aims to offer a comprehensive development environment for users, with authentication, project management, and a rich code editing experience.
+# CodeGem – AI-Powered Full-Stack Online IDE
 
-Tech Stack
-The project is built with a MERN (MongoDB, Express.js, React, Node.js) stack, along with additional libraries and tools for a complete online IDE experience.
+A **comprehensive browser-based IDE** that enables developers to write, compile, and execute code in multiple programming languages without the need for any local setup.
+CodeGem offers a seamless **full-stack development experience** with real-time code execution, intuitive project management, and the foundation for **AI-powered coding assistance**.
 
-Backend:
+---
 
-Node.js/Express.js: The core backend framework, handling API routes, authentication, and communication with the database.
-express: Web framework for Node.js.
-http-errors: HTTP error creation.
-morgan: HTTP request logger middleware.
-cookie-parser: Middleware to parse cookies.
-cors: Enables Cross-Origin Resource Sharing.
-Database:
-mongoose: MongoDB object modeling for Node.js. Used for userModel.js and projectModel.js to define schemas and interact with the MongoDB database.
-Authentication & Security:
-bcryptjs: For hashing passwords.
-jsonwebtoken: For creating and verifying JWT tokens for user authentication.
-Templating Engine:
-ejs: Embedded JavaScript templating for server-side rendering (though primarily an API backend, it might be used for error pages or simple server-rendered views).
-Frontend:
+## ✨ Features
 
-React: The core JavaScript library for building user interfaces.
-react-router-dom: For client-side routing within the React application.
-Build Tool:
-Vite: A fast build tool that provides a rapid development experience.
-Styling:
-tailwindcss: A utility-first CSS framework for rapid UI development.
-postcss: A tool for transforming CSS with JavaScript plugins.
-Code Editor:
-@monaco-editor/react: A React wrapper for the Monaco Editor (the same editor that powers VS Code), providing advanced code editing features, syntax highlighting, and language support.
-Icon Library:
-react-icons: A collection of popular SVG icon packs as React components.
-Utility Libraries:
-axios: A promise-based HTTP client for making API requests to the backend.
-js-cookie: A simple, lightweight JavaScript API for handling browser cookies.
-Other Tools:
+### 💻 Full-Stack Online IDE
 
-ESLint: For linting and maintaining code quality.
-Project Structure:
+* Real-time code writing, compilation, and execution directly in the browser
+* Multi-language support with syntax highlighting and auto-completion
+* AI-assisted development capabilities (planned for future releases)
+
+### 📂 Project Management
+
+* Create, save, and delete projects securely
+* Organize code files for different programming languages
+* Persistent storage of user projects using a secure backend
+
+### 🔐 User Authentication
+
+* Secure sign-up and login functionality
+* Password hashing and JWT-based authentication
+* Session handling with cookies
+
+### 🎨 Modern UI/UX
+
+* VS Code–like editing experience powered by **Monaco Editor**
+* Responsive design with **Tailwind CSS**
+* Smooth navigation using **React Router DOM** and interactive notifications with **React Hot Toast**
+
+---
+
+## 🏗️ Architecture
+
+### Tech Stack
+
+**Frontend**
+
+* **React** – Building dynamic user interfaces
+* **Vite** – Lightning-fast development and bundling
+* **Tailwind CSS** – Utility-first styling for rapid UI design
+* **Monaco Editor** – Browser-based code editor with advanced features
+* **React Router DOM** – Client-side routing
+* **Axios** – Simplified HTTP requests
+* **React Icons & React Hot Toast** – UI enhancements and notifications
+
+**Backend**
+
+* **Node.js** – JavaScript runtime for server-side development
+* **Express.js** – Fast and minimalist web framework
+* **MongoDB** – NoSQL database for project and user data
+* **Mongoose** – ODM for MongoDB
+* **bcryptjs** – Password hashing for secure authentication
+* **jsonwebtoken (JWT)** – Token-based authentication
+* **cookie-parser** – Handling cookies in HTTP requests
+* **cors, http-errors, morgan, debug** – Middleware for CORS, error handling, and logging
+
+---
+
+## 📁 Project Structure
+
+```
 CodeGem-AI-Powered-Full-Stack-Online-IDE/
-├── backend/                      # Express.js backend
-│   ├── models/                    # Mongoose models
-│   │   ├── projectModel.js        # Schema for project data
-│   │   └── userModel.js           # Schema for user data
-│   ├── routes/                    # API route definitions
-│   │   ├── index.js               # Main route entry point
-│   │   └── users.js               # User-related routes
-│   ├── app.js                     # Express app configuration
-│   ├── package.json               # Backend dependencies & scripts
-│   └── package-lock.json          # Exact backend dependency versions
-│
-├── frontend/                      # React + Vite frontend
-│   ├── src/                       # Frontend source code
-│   │   ├── components/            # Reusable UI components
-│   │   │   ├── EditiorNavbar.jsx  # Navbar for the code editor page
-│   │   │   ├── GridCard.jsx       # Grid-style card component
-│   │   │   ├── ListCard.jsx       # List-style card component
-│   │   │   └── Navbar.jsx         # Main site navigation bar
-│   │   ├── pages/                 # Page-level components
-│   │   │   ├── Editior.jsx        # Online code editor page
-│   │   │   ├── Home.jsx           # Landing/home page
-│   │   │   ├── Login.jsx          # User login page
-│   │   │   ├── NoPage.jsx         # 404 / Not found page
-│   │   │   └── SignUp.jsx         # User sign-up page
-│   │   ├── App.jsx                # Root React component
-│   │   ├── App.css                # App-level styles
-│   │   ├── helper.js              # Frontend utility functions
-│   │   ├── index.css              # Global CSS
-│   │   └── main.jsx               # React entry point
-│   ├── index.html                 # HTML template
-│   ├── package.json               # Frontend dependencies & scripts
-│   ├── package-lock.json          # Exact frontend dependency versions
-│   ├── postcss.config.js          # PostCSS configuration
-│   ├── tailwind.config.js         # Tailwind CSS configuration
-│   └── vite.config.js             # Vite build configuration
-│
-├── .gitignore                     # Git ignore rules
-└── README.md                      # Project documentation
+├── backend/
+│   ├── bin/
+│   │   └── www                  # App entry point
+│   ├── models/                  # Mongoose schemas
+│   │   ├── projectModel.js
+│   │   └── userModel.js
+│   ├── routes/                  # API routes
+│   │   ├── index.js
+│   │   └── users.js
+│   ├── app.js                   # Express app configuration
+│   ├── package.json
+│   └── package-lock.json
+├── frontend/
+│   ├── public/
+│   │   └── vite.svg
+│   ├── src/
+│   │   ├── components/          # Reusable React components
+│   │   │   ├── EditiorNavbar.jsx
+│   │   │   ├── GridCard.jsx
+│   │   │   ├── ListCard.jsx
+│   │   │   └── Navbar.jsx
+│   │   ├── images/
+│   │   │   ├── authPageSide.png
+│   │   │   └── logo.png
+│   │   ├── pages/               # App pages
+│   │   │   ├── Editior.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── NoPage.jsx
+│   │   │   └── SignUp.jsx
+│   │   ├── App.jsx
+│   │   ├── helper.js
+│   │   ├── main.jsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── vite.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── postcss.config.js
+│   └── tailwind.config.js
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* **Node.js** v18+
+* **MongoDB** database (local or cloud-based)
+
+### Installation
+
+1️⃣ **Clone the repository**
+
+```bash
+git clone https://github.com/ShivangKathait29/CodeGem-AI-Powered-Full-Stack-Online-IDE.git
+cd CodeGem-AI-Powered-Full-Stack-Online-IDE
+```
+
+2️⃣ **Install dependencies**
+
+```bash
+# For backend
+cd backend
+npm install
+
+# For frontend
+cd ../frontend
+npm install
+```
+
+3️⃣ **Configure Environment Variables**
+
+Create a `.env` file inside the **backend/** directory:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+PORT=5000
+```
+
+4️⃣ **Run the application**
+
+```bash
+# Start backend server
+cd backend
+npm start
+
+# Start frontend development server
+cd ../frontend
+npm run dev
+```
+
+Open your browser at **[http://localhost:5173](http://localhost:5173)** (Vite default) to access the frontend.
+
+---
+
+## 🔧 Key Features in Detail
+
+### Real-Time Compilation & Execution
+
+* Write and run code instantly without installing compilers locally
+* Ideal for quick testing and learning multiple languages
+
+### Project Management
+
+* Securely create, save, and retrieve coding projects
+* Manage multiple projects with ease
+
+### User Authentication
+
+* JWT-based secure authentication
+* Passwords hashed using bcrypt for enhanced security
+
+### AI-Powered Assistance *(Upcoming)*
+
+* Intelligent code completion and debugging support
+* Smart recommendations for code optimization
+
+---
+
+## 📈 Future Roadmap
+
+* 🤖 **AI-assisted code generation** and real-time debugging
+* 🌐 **Multi-language runtime support** for advanced languages
+* 💾 **Cloud-based persistent project storage** with version control
+* 🧩 **Collaborative coding** with live sharing and pair programming features
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit changes: `git commit -m 'Add your feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+* **React** & **Vite** for the modern frontend development experience
+* **Monaco Editor** for providing a VS Code-like editor inside the browser
+* **Node.js**, **Express**, and **MongoDB** for powering the backend
+* Open-source community for libraries and tools that make full-stack development seamless
